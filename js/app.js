@@ -1,4 +1,4 @@
-const url = 'https://www.reddit.com/r/TenX.json';
+let url = 'https://www.reddit.com/r/PrequelMemes.json';
 
 const request = (URL, callback) => {
     const oReq = new XMLHttpRequest();
@@ -43,37 +43,33 @@ request(url, res => {
 
                 let postDescription = document.createElement('p');
                 postDescription.setAttribute('class','description');
+                postDescription.textContent = post.data.selftext;
                 postData.appendChild(postDescription);
      
-        console.log(post.data)
+        // console.log(post.data)
     }
 });
 
-function makePost () {
+let ranButton = document.getElementById('randomlink');
+ranButton.addEventListener('click', getRandom());
+
+function getRandom (url) {
+    let randombutton = document.getElementById('randomlink').href;
     
-}
 
+    console.log(randombutton);
+    
+    
+    // randomcall => {
+    //     const oReq = new XMLHttpRequest();
+    //     oReq.addEventListener('click', ranodmcall);
+    //     oReq.open('get', randomurl);
+    //     oReq.send();
+    // })
+    // randomcall(randomurl, res => {
+    //     // let target = JSON.parse(res.currentTarget.response);
+    //     console.log('test');
+    // })
 
-
-
-
-
-
-
-
-
-
-// let inspect = new XMLHttpRequest();
-// inspect.addEventListener('load', function(res){
-//     let target = JSON.parse(res.currentTarget.response).data.children
-//     for (let i=0;i<target.length;i++) {
-//         let post = target[i];
-//         console.log("Post Title: " + post.data.title)
-//         console.log("Post Author: " + post.data.author)
-//         // console.log("Post Title: " + post.data.preview.images[0].source.url)
-//         console.log(post.data)
-//     }
-// })
-// inspect.open('GET', 'https://www.reddit.com/r/youseeingthisshit.json');
-// inspect.send();
+};
 
